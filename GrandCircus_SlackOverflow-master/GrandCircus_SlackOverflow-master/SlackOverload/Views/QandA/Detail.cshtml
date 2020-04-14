@@ -1,0 +1,29 @@
+﻿@model Question
+
+@{
+    ViewData["Title"] = Model.Title;
+    List<Answer> Answers = (List<Answer>)ViewData["Answers"];
+}
+
+<h1>@Model.Title</h1>
+<div>@Model.Detail</div>
+<div>Asked on @Model.Posted by @Model.Username</div><br />
+<p><a href="/QandA/Edit/@Model.Id" class="btn btn-success" role="button">Edit</a> </p>
+<h2>Answers</h2>
+@if (Answers.Count == 0)
+{
+    <p>There are no answers yet.</p>
+}
+
+@foreach (Answer a in Answers)
+{
+    <p>
+        <strong>@a.Username</strong>:
+        @a.Detail<br />
+        <em>@a.Posted</em> Votes: @a.Upvotes
+    </p>
+    <p><a href="/QandA/EditAnswer/@a.Id">Edit Answer</a></p>
+    
+}
+
+<p><a href="/QandA/AddAnswer/@Model.Id">Post your answer!</a></p>

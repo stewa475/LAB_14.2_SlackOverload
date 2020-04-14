@@ -1,0 +1,50 @@
+﻿@model Question
+@{
+    ViewData["Title"] = "Create a New Question";
+}
+
+<h1>@ViewData["Title"]</h1>
+Please add your question:
+<form asp-controller="QandA" asp-action="Add" method="post">
+    <p>
+        @Html.LabelFor(m => m.Username)
+        @Html.EditorFor(m => m.Username)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Title)
+        @Html.EditorFor(m => m.Title)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Detail)
+        <textarea id="Detail" name="Detail" rows="5" cols="40">@Model.Detail</textarea>
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Tags) (just type in keywords)
+        @Html.EditorFor(m => m.Tags)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Category)
+        <select asp-for="Category">
+            <option>C#</option>
+            <option>CSS</option>
+            <option>HTML</option>
+            <option>Java</option>
+            <option>JavaScript</option>
+        </select>
+    </p>
+
+    @*<p>
+            @Html.LabelFor(m => m.Posted)
+            @{
+                //format the date right to fill in the input field
+                string datetime = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
+            }
+            <input type="datetime" value="@datetime" />
+        </p>*@
+    <!-- add the status field for edit -->
+    <p>
+        <input type="submit" />
+    </p>
+</form>

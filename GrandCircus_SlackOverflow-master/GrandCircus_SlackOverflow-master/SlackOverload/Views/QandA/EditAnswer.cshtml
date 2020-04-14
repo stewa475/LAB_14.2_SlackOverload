@@ -1,0 +1,28 @@
+﻿@model Answer
+@{
+    ViewData["Title"] = "EditAnswer";
+}
+
+<h1>EditAnswer</h1>
+
+<form asp-controller="QandA" asp-action="EditAnswer" method="post">
+    <p>
+        @Html.LabelFor(m => m.Username)
+        @Html.EditorFor(m => m.Username)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Detail)
+        <textarea id="Detail" name="Detail" rows="5" cols="40">@Model.Detail</textarea>
+    </p>
+
+    @*<p>
+
+        <input type="hidden" name="QuestionId" id="QuestionId" value="@ViewData["QuestionId"]" />
+    </p>*@
+
+
+    <p>
+        <input type="submit" value="Add answer" />
+    </p>
+</form>

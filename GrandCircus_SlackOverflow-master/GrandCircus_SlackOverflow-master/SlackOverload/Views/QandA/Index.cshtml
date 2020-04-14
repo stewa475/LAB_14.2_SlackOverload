@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    List<Question> Questions = (List<Question>)ViewData["Questions"];
+}
+
+
+<h1>Recent Questions</h1>
+
+<form asp-controller="QandA" asp-action="Search" method="post">
+    <input type="search" id="Search" name="Search" />
+
+    
+    <input type="submit" value="Search" />
+</form>
+
+@foreach (Question q in Questions)
+{
+    <h3><a href="/QandA/Detail/@q.Id">@q.Title</a></h3>
+    @if (q.Detail.Length > 100)
+    {
+        <div>@q.Detail.Substring(0, 100) ...</div>
+    }
+    else
+    {
+        <div>@q.Detail</div>
+    }
+    @q.Username
+
+}
+
