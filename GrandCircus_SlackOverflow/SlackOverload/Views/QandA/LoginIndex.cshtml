@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Please log in:</h1>
+@if (TempData["ErrorMsg"] != null)
+{
+    <p>@TempData["ErrorMsg"]</p>
+}
+<form asp-action="Login" asp-controller="QandA" method="post">
+    <p>Username: <input name="username" type="text" /></p>
+    <p>Password: <input name="password" type="password" /></p>
+    <p><input type="submit" value="Log In" /></p>
+</form>
+

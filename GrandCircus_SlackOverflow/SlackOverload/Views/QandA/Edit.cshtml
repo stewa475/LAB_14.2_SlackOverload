@@ -1,0 +1,40 @@
+﻿@model Question
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form asp-controller="QandA" asp-action="Edit" method="post">
+    <p>
+        @Html.LabelFor(m => m.Username)
+        @Html.EditorFor(m => m.Username)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Title)
+        @Html.EditorFor(m => m.Title)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Detail)
+        <textarea id="Detail" name="Detail" rows="5" cols="40">@Model.Detail</textarea>
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Tags) (just type in keywords)
+        @Html.EditorFor(m => m.Tags)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Category)
+        <select asp-for="Category">
+            <option>C#</option>
+            <option>CSS</option>
+            <option>HTML</option>
+            <option>Java</option>
+            <option>JavaScript</option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" />
+    </p>
+</form>

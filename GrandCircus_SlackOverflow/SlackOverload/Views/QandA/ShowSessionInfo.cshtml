@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "ShowSessionInfo";
+}
+
+<h1>ShowSessionInfo</h1>
+@if (ViewData["Username"] != null)
+{
+    <p>@ViewData["Username"], you are user @ViewData["UID"]</p>
+}
+
